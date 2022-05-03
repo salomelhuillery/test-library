@@ -55,7 +55,7 @@ function displayBooksOnPage(){
         const author = document.createElement("h3");
         author.innerText = document.getElementById("author").value;
         card.appendChild(author);
-
+ 
         const pages = document.createElement("p");
         pages.innerText = document.getElementById("pages").value+" pages";
         card.appendChild(pages);
