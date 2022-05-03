@@ -4,36 +4,93 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<link rel="stylesheet" href="style.css">
+    <title>My Library</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/ea534ece9c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/lrf6lat.css">
 </head>
-
 <body>
-    
 
-    <div class="addBook">
-        <form id="bookForm" action="">
-            <label for="title">Title of the book</label><br>
-            <input type="title" id="title">
-            <br><br>
-            <label for="author">Name of the author</label><br>
-            <input type="author" id="author">
-            <br><br>
-            <label for="numPage">Number of pages</label><br>
-            <input type="numPage" id="numPage">
-            <br><br>
-            <label for="status">Status of the book</label><br>
-            <input type="status" id="status">
+       
+    <nav>
+        <ul>
+            <div class="myTitle">
+                <li><h1>My library</h1></li>
+            </div>
+            <div class="plusIcon">
+                <li><i class="fa-solid fa-plus" onclick="openPop()"></i></li>
+            </div>
+            <div class="graphIcon">
+                <li><i class="fa-solid fa-chart-line"></i></li>
+            </div>
+        </ul>
 
-            <br><br><br>
+    </nav>
 
-        </form>
+    <hr>
 
-        <button id="addButton">Add a book</button>
+    <br>
+
+    <div class="filterBox">
+        <label for="cars">Filter by</label>
+        <select name="filters" id="filters" form="filters" class="styled">
+          <option value="genre">Genre</option>
+          <option value="title">Title</option>
+          <option value="status">Status</option>
+          <option value="note">Note</option>
+        </select>
     </div>
 
-    <script src="script.js"></script>
+    <br>
 
+
+    <div class="libraryShelf">
+        <div class="books">
+        </div>
+    </div>
+
+    
+    <div id="popUp">
+        <div class="whiteBackground"></div>
+        <div class="addBook" id="popupForm">
+            <i class="fa-solid fa-xmark" style="float: right; font-size: 20px; margin-top: -10px;" onclick="closePop()" id="closePopStyle"></i>
+            <form id="FormBook" action="">
+                <label for="title">Title of the book</label><br>
+                <input type="text" id="title">
+                <br><br>
+                <label for="author">Name of the author</label><br>
+                <input type="text" id="author">
+                <br><br>
+                <label for="pages">Number of pages</label><br>
+                <input type="number" id="pages">
+                <br><br>
+                <label for="genre">Genre of the book</label><br>
+                <select id="genre" name="genre" class="styled">
+                    <option value="essay">Essay</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="graphicNovel">Graphic novel</option>
+                    <option value="literaryFiction">Literary Fiction</option>
+                    <option value="sciFi">Sci Fi</option>
+                </select>
+                <br><br>
+
+                <!-- <label for="Rating">Rating</label>
+                <br>
+
+                <div class="rating">
+                    <input type="radio" name="stars" class="radio">
+                    <input type="radio" name="stars" class="radio">
+                    <input type="radio" name="stars" class="radio">
+                </div> -->
+
+
+            </form>
+            <button type="submit" id="addButton" onclick="inTakeFormData()">Add a book</button>
+        </div>
+    </div>
+    
+        <!-- <button onclick="myLibrary.sort()">Title</button> -->
+
+    <script src="book.js"></script>
 </body>
-
 </html>
