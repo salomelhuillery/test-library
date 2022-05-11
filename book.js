@@ -8,15 +8,15 @@ function openPop(){
 
 let myLibrary = [];
 
-function Book(Title, Author, Pages, Genre){
-    this.Title = Title;
-    this.Author = Author;
-    this.Pages = Pages;
-    this.Genre = Genre;
+function Book(title, author, pages, genre){
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.genre = genre;
 }
 
 
-function inTakeFormData(){
+function inTakeFormData(){ //recupere les donnees remplie par l'utilisateur pour les mettre dans le constructor
     let Title = document.getElementById("title").value;
     let Author = document.getElementById("author").value;
     let Pages = document.getElementById("pages").value;
@@ -26,9 +26,9 @@ function inTakeFormData(){
     document.getElementById("FormBook").reset();
 }
 
-function AddBookToLibrary(Title, Author, Pages, Genre){
-    let book = new Book(Title, Author, Pages, Genre);
-    myLibrary.push(book);
+function AddBookToLibrary(title, author, pages, genre){ //ajoute les livres a l'array "myLibrary" defini plus haut
+    let book = new Book(title, author, pages, genre);
+    myLibrary.push(book); 
     displayBooksOnPage();
 }
 
@@ -37,13 +37,13 @@ function displayBooksOnPage(){
 
     const books = document.querySelector(".books");
 
-    const removePreviousCard = document.querySelectorAll(".card");
+    const removePreviousCard = document.querySelectorAll(".card"); // affiche seulement le dernier livre et pas la totalite de l'array
     for (let i = 0; i < removePreviousCard.length; i++){
         removePreviousCard[i].remove();
-    }
+    } 
 
 
-    myLibrary.forEach(myLibrary => {
+    myLibrary.forEach(myLibrary => { //Pour chaque nouvelle entree, une nouvelle carte et cree avec les infos remplie par l'utilisateur
         const card = document.createElement("div");
         card.classList.add("card");
         books.appendChild(card);
@@ -55,7 +55,7 @@ function displayBooksOnPage(){
         const author = document.createElement("h3");
         author.innerText = document.getElementById("author").value;
         card.appendChild(author);
- 
+
         const pages = document.createElement("p");
         pages.innerText = document.getElementById("pages").value+" pages";
         card.appendChild(pages);
@@ -64,18 +64,17 @@ function displayBooksOnPage(){
         genre.innerText = document.getElementById("genre").value;
         card.appendChild(genre);
 
-        // const radio = document.createElement("p");
-        // genre.innerText = document.getElementById("radio").value;
-        // card.appendChild(radio);
-    
+        const del = document.createElement("button");
+        del.innerText = "Delete";
+        del.classList.add("del");
+        del.setAttribute("id", "del");
+        card.appendChild(del);
 
-        // const supr = document.createElement("i");
-        // supr.classList.add('fa-solid', 'fa-xmark');
-        // card.appendChild(supr); //comment integrer l'icone i
-
-
-
-        // card.appendChild('<i class="fa-solid fa-xmark" aria-hidden="true"></i>');
+        const edit = document.createElement("button");
+        edit.innerText = "Edit";
+        edit.classList.add("edit");
+        edit.setAttribute("id", "edit");
+        card.appendChild(edit);
 
     }
 
@@ -84,10 +83,13 @@ function displayBooksOnPage(){
 
 }
 
-// function removeBook() {
+
+// document.getElementById("del").addEventListener("click", removeFromScreen);  
+
+// function removeFromScreen() {  
 //     const card = document.querySelector(".card");
 //     card.style.display = "none";
-// }
+//     }
 
 
 
