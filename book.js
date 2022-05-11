@@ -43,7 +43,7 @@ function displayBooksOnPage(){
     } 
 
 
-    myLibrary.forEach(myLibrary => { //Pour chaque nouvelle entree, une nouvelle carte et cree avec les infos remplie par l'utilisateur
+    myLibrary.forEach(myLibrary => { //Pour chaque nouvelle entree, une nouvelle carte est cree avec les infos remplie par l'utilisateur
         const card = document.createElement("div");
         card.classList.add("card");
         books.appendChild(card);
